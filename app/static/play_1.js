@@ -48,8 +48,8 @@ function preload() {
 
 function create() {
     var background = this.add.image(0, 0, 'background').setOrigin(0, 0);
-    background.displayWidth = this.sys.game.config.width;
-    background.displayHeight = this.sys.game.config.height;
+    background.displayWidth = width_e;
+    background.displayHeight = height_e;
     var sound = this.sound.add("set_us")
     this.add.image(300* coeff, 200* coeff, "box1").setScale(2.1 * coeff);
     this.add.image(2560 / 2 * coeff, 200* coeff, "box2").setScale(2.1* coeff);
@@ -167,7 +167,7 @@ function update() {
         video.play(true);
         setTimeout(function() {
             video.stop("");
-            window.location.replace("http://127.0.0.1:5000");
+            window.location.replace("http://127.0.0.1:5000/diploms/1");
 }, 12000);
     }
 }

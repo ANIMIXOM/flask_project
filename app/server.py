@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, request
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 
 from forms.user import RegisterForm, LoginForm
@@ -9,6 +9,24 @@ app = Flask(__name__, static_url_path='/static')
 login_manager = LoginManager()
 login_manager.init_app(app)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
+
+
+@app.route('/diploms/<play_id>', methods=["GET", 'POST'])
+def diplom(play_id):
+    print("проверка")
+    if request.method == 'POST':
+        print("проверка 2")
+        return render_template(f"base.html")
+    return render_template(f"gr_{play_id}.html")
+
+
+@app.route("/diploms", methods=["GET", "POST"])
+def diplom_sett():
+    if request.method == "POST":
+        if 'email_button' in request.form:
+            return render_template("email_push.html")
+        if 'push_email' in request.form:
+            return f"{request.form['firstName']}, {request.form['lastName']}"
 
 
 @login_manager.user_loader
