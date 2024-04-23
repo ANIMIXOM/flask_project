@@ -74,7 +74,7 @@ def register():
         db_sess = db_session.create_session()
         if db_sess.query(User).filter(User.email == form.email.data).first():
             return render_template('register.html', title='Регистрация', form=form,
-                                   message="Такой пользователь уже есть")
+                                   message="Такой пользователь  уже есть")
         user = User(
             name=form.name.data,
             email=form.email.data,
