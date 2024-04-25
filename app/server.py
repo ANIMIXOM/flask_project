@@ -111,7 +111,7 @@ def add_score(id):
         user_id=current_user.id,
         fabric_id=id
     )
-    db_sess.add(user_fabric)
+    db_sess.add(user_fabric )
     db_sess.commit()
     print(current_user)
     return redirect(f'/diploms/{id}')
