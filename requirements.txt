@@ -1,0 +1,6 @@
+SQLAlchemy
+WTForms
+requests
+Flask
+pillow
+python-dotenv
